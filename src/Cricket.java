@@ -7,7 +7,7 @@ public class Cricket
     public static void main(String[] args) throws Exception
     {
         //-----------TASK 1---------------------------
-        /*BufferedReader b = new BufferedReader(new FileReader("matches.csv"));
+        BufferedReader b = new BufferedReader(new FileReader("matches.csv"));
         String s = b.readLine();
         HashMap<String, Integer> d = new HashMap<>();
         while((s = b.readLine()) != null)
@@ -19,11 +19,12 @@ public class Cricket
                 d.put(y, d.getOrDefault(y, 0) + 1); // that means if y is in map the for its count +1 will be added if not then 0 will be its count and for that we will add 1 as present exsistance
             }
         }
-        System.out.println(d);*/
+        System.out.println("TASK 1 OUTPUT");
+        System.out.println(d + "\n\n\n");
 
 
         //---------TASK 2-----------------------------
-       /* BufferedReader b1 = new BufferedReader(new FileReader("matches.csv"));
+       BufferedReader b1 = new BufferedReader(new FileReader("matches.csv"));
         String s1 = b1.readLine();
         HashMap<String, Integer> d1 = new HashMap<>();
 
@@ -35,11 +36,12 @@ public class Cricket
                 d1.put(w, d1.getOrDefault(w, 0) + 1);
             }
         }
-        System.out.println(d1);
-        */
+        System.out.println("TASK - 2 OUTPUT");
+        System.out.println(d1 + "\n\n\n");
+
 
         //--------------TASK 3 ----------------------------------
-        /*BufferedReader b2 = new BufferedReader(new FileReader("matches.csv"));
+        BufferedReader b2 = new BufferedReader(new FileReader("matches.csv"));
         String s2 = b2.readLine();
         System.out.println(s2+"\n\n\n");
         Set<Integer> mid = new HashSet<>();
@@ -70,8 +72,9 @@ public class Cricket
                 }
             }
         }
-        System.out.println(d2);
-        */
+        System.out.println("TASK 3 OUTPUT");
+        System.out.println(d2 + "\n\n\n");
+
 
         BufferedReader b4 = new BufferedReader(new FileReader("matches.csv"));
         String s5 = b4.readLine();
@@ -116,7 +119,8 @@ public class Cricket
             double ecnmy = tr / (tb / 6.0);
             l.add(new AbstractMap.SimpleEntry<>(i, ecnmy));
         }
-        l.sort((a, b) -> Double.compare(a.getValue(), b.getValue()));
+        l.sort((a, q) -> Double.compare(a.getValue(), q.getValue()));
+        System.out.println("\n\nTASK 4 OUTPUT");
         System.out.println("Top Economical Bowlers (2015):");
         for (int i = 0; i < Math.min(10, l.size()); i++) // prevent errors if the list<10 (Math.min(10, l.size())
         {
@@ -127,11 +131,11 @@ public class Cricket
         //-----TASK 5------------------
         // Find Number of matches played in each city and max matches held among all cities
         BufferedReader br = new BufferedReader(new FileReader("matches.csv"));
-        String s = br.readLine();
+        String stn = br.readLine();
         HashMap<String, Integer> m = new HashMap<>();
-        while((s = br.readLine()) != null)
+        while((stn = br.readLine()) != null)
         {
-            String[] t = s.split(",");
+            String[] t = stn.split(",");
             String c = t[2];
             if(c != null && !c.isEmpty())
             {
