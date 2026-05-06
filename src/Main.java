@@ -92,26 +92,19 @@ public class Main {
                 System.out.println(e.getKey() + " -> " + e.getValue())
         );
 
-        // TASK 5: Matches per city + max city
-        Map<String, Integer> cityMatches = new HashMap<>();
-
-        for (String[] row : matches) {
-            String city = row[2];
-            cityMatches.put(city, cityMatches.getOrDefault(city, 0) + 1);
-        }
-
-        System.out.println("\nTASK 5 OUTPUT");
-        System.out.println(cityMatches);
-
-        String maxCity = "";
-        int max = 0;
-        for (Map.Entry<String, Integer> e : cityMatches.entrySet()) {
-            if (e.getValue() > max) {
-                max = e.getValue();
-                maxCity = e.getKey();
+        // TASK 5: Batsman with most sixes
+        HashMap<String, Integer> sixes = new HashMap<>();
+        for(String[] row:deliveries)
+        {
+            String batsman = row[6];
+            int runs = Integer.parseInt(row[15]);
+            if(runs == 6)
+            {
+               sixes.put(batsman, sixes.getOrDefault(batsman, 0) + 1);
             }
         }
-        System.out.println("Max matches city: " + maxCity + " -> " + max);
+        System.out.println("\n TASK 5");
+        sixes.entrySet().stream().sorted((a, b) -> b.getValue() - a.getValue()).limit(1).forEach(e -> System.out.println(e.getKey() +"-> " + e.getValue()));
     }
     //Input Reading
     static List<String[]> loadCSV(String file) throws Exception {
