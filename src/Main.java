@@ -19,7 +19,10 @@ public class Main {
         // TASK 2: Toss winners
         Map<String, Integer> tossWins = new HashMap<>();
         for (String[] row : matches) {
-            tossWins.put(row[10], tossWins.getOrDefault(row[10], 0) + 1);
+            if(row[10]!= null && !row[10].equals(""))
+            {
+                tossWins.put(row[10], tossWins.getOrDefault(row[10], 0) + 1);
+            }
         }
         System.out.println("\nTASK 2 OUTPUT");
         System.out.println(tossWins);
@@ -37,10 +40,10 @@ public class Main {
             int matchId = Integer.parseInt(row[0]);
 
             if (matches2016.contains(matchId)) {
-                String bowler = row[8];
-                int runs = Integer.parseInt(row[17]);
+                String team = row[3];
+                int runs = Integer.parseInt(row[16]);
 
-                runs2016.put(bowler, runs2016.getOrDefault(bowler, 0) + runs);
+                runs2016.put(team, runs2016.getOrDefault(team, 0) + runs);
             }
         }
 
@@ -61,6 +64,7 @@ public class Main {
             int matchId = Integer.parseInt(row[0]);
 
             if (matches2015.contains(matchId)) {
+
                 String bowler = row[8];
                 int runs = Integer.parseInt(row[17]);
 
@@ -112,7 +116,6 @@ public class Main {
     //Input Reading
     static List<String[]> loadCSV(String file) throws Exception {
         List<String[]> data = new ArrayList<>();
-
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             br.readLine(); // skip header
             String line;
